@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CampusFind | Campus Lost & Found</title>
+<style>
+:root{--navy:#13233f;--blue:#315efb;--pale:#f3f6ff;--ink:#1c2740;--muted:#68738a;--line:#e4e9f2;--green:#16866b}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:#f8faff;color:var(--ink)}button,input,select,textarea{font:inherit}button{cursor:pointer}.nav{display:flex;justify-content:space-between;align-items:center;padding:18px max(5%,calc((100% - 1180px)/2));background:white;border-bottom:1px solid var(--line);gap:20px;position:sticky;top:0;z-index:2}.brand{font-size:22px;font-weight:850;color:var(--navy);letter-spacing:-.7px}.brand span{color:var(--blue)}.navlinks{display:flex;gap:18px;align-items:center}.navlinks a{color:var(--muted);text-decoration:none;font-weight:650;font-size:14px}.btn{border:0;border-radius:11px;padding:12px 16px;font-weight:750}.primary{background:var(--blue);color:white}.secondary{background:white;border:1px solid var(--line);color:var(--navy)}.hero{background:linear-gradient(125deg,#142544,#2449a6);color:white;padding:64px 5% 58px}.hero-inner{max-width:1120px;margin:auto;display:grid;grid-template-columns:1.3fr .7fr;gap:30px;align-items:center}.eyebrow{color:#bfcfff;font-weight:750;text-transform:uppercase;letter-spacing:1.5px;font-size:12px}.hero h1{font-size:clamp(36px,5vw,58px);line-height:1.05;letter-spacing:-2px;margin:14px 0}.hero p{color:#dce5ff;line-height:1.7;max-width:580px}.searchbox{display:flex;gap:8px;background:white;padding:8px;border-radius:14px;max-width:620px;margin-top:24px}.searchbox input{flex:1;min-width:0;border:0;padding:10px;outline:none}.hero-art{background:#ffffff13;border:1px solid #ffffff30;border-radius:24px;padding:26px;text-align:center}.hero-art .emoji{font-size:78px}.hero-art h3{margin:8px 0}.hero-art p{font-size:14px;margin:6px auto}.wrap{max-width:1120px;margin:auto;padding:34px 5% 60px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:-2px}.stat{background:white;border:1px solid var(--line);border-radius:16px;padding:19px}.stat strong{font-size:28px;display:block;color:var(--navy)}.stat span{font-size:13px;color:var(--muted)}.section-head{display:flex;justify-content:space-between;gap:12px;align-items:end;margin:38px 0 18px}.section-head h2{margin:0;font-size:25px}.section-head p{margin:6px 0 0;color:var(--muted);font-size:14px}.filters{display:flex;gap:10px;flex-wrap:wrap}.filters input,.filters select,.field input,.field select,.field textarea{border:1px solid var(--line);background:white;border-radius:10px;padding:11px 12px;color:var(--ink);width:100%}.filters input{max-width:320px}.filters select{width:auto}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.item{background:white;border:1px solid var(--line);border-radius:17px;overflow:hidden;display:flex;flex-direction:column}.itemtop{background:var(--pale);padding:22px;font-size:42px;text-align:center}.itembody{padding:17px;display:flex;flex-direction:column;gap:9px;flex:1}.tag{font-size:11px;text-transform:uppercase;font-weight:800;letter-spacing:.6px;border-radius:20px;padding:5px 9px;display:inline-block;width:max-content}.lost{background:#fff0e8;color:#ad4c16}.found{background:#e2f8ee;color:#087b56}.item h3{margin:0;font-size:18px}.item p{margin:0;color:var(--muted);font-size:13px;line-height:1.55}.meta{font-size:12px;color:var(--muted);display:flex;gap:8px;flex-wrap:wrap}.item .btn{margin-top:auto}.empty{background:white;border:1px dashed #ccd4e3;padding:35px;text-align:center;border-radius:15px;color:var(--muted);grid-column:1/-1}.report{background:white;border:1px solid var(--line);border-radius:18px;padding:24px;margin-top:42px}.report h2{margin-top:0}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field label{display:block;font-size:13px;font-weight:750;margin-bottom:7px}.field.full{grid-column:1/-1}.field textarea{min-height:92px;resize:vertical}.formfoot{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:16px}.hint{color:var(--muted);font-size:12px;line-height:1.5}.notice{display:none;margin-top:12px;background:#e7f8ef;color:#126a4e;padding:11px;border-radius:10px;font-size:14px}.footer{padding:25px 5%;text-align:center;color:var(--muted);font-size:13px;border-top:1px solid var(--line);background:white}.contact{background:#eef3ff;border-radius:16px;padding:22px;margin-top:26px;display:flex;justify-content:space-between;align-items:center;gap:15px}.contact h3{margin:0 0 5px}.contact p{margin:0;color:var(--muted);font-size:13px}
+@media(max-width:760px){.hero-inner{grid-template-columns:1fr}.hero-art{display:none}.nav{padding:14px 5%}.navlinks a{display:none}.cards{grid-template-columns:1fr 1fr}.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}.stats{gap:8px}.stat{padding:13px}.stat strong{font-size:23px}.section-head{align-items:start;flex-direction:column}.contact{align-items:start;flex-direction:column}}
+@media(max-width:480px){.cards{grid-template-columns:1fr}.searchbox{flex-wrap:wrap}.searchbox input{flex-basis:100%}.stats{grid-template-columns:1fr 1fr}.stats .stat:last-child{grid-column:1/-1}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="brand">Campus<span>Find</span> 🔎</div>
+  <nav class="navlinks"><a href="#items">Browse items</a><a href="#report">Report an item</a><button class="btn primary" onclick="document.querySelector('#report').scrollIntoView({behavior:'smooth'})">+ Report item</button></nav>
+</header>
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">Your campus lost & found community</div>
+      <h1>Lost something?<br>Let's find it.</h1>
+      <p>A simple place for students to report lost belongings, post found items, and help reunite people with the things that matter.</p>
+      <div class="searchbox"><input id="heroSearch" placeholder="Search for keys, bottle, ID card..." aria-label="Search items"><button class="btn primary" onclick="searchFromHero()">Search items</button></div>
+    </div>
+    <div class="hero-art"><div class="emoji">🎒 🔑 📱</div><h3>Good things find their way back.</h3><p>Search campus reports or add an item you found.</p></div>
+  </div>
+</section>
+<main class="wrap">
+  <div class="stats">
+    <div class="stat"><strong id="totalCount">6</strong><span>Items posted</span></div>
+    <div class="stat"><strong id="lostCount">3</strong><span>Reported lost</span></div>
+    <div class="stat"><strong id="foundCount">3</strong><span>Reported found</span></div>
+  </div>
+  <section id="items">
+    <div class="section-head"><div><h2>Campus item board</h2><p>Browse recent lost and found reports.</p></div>
+      <div class="filters"><input id="searchInput" placeholder="Search items..." aria-label="Search items" oninput="renderItems()"><select id="typeFilter" onchange="renderItems()" aria-label="Filter item type"><option value="all">All reports</option><option value="lost">Lost items</option><option value="found">Found items</option></select><select id="categoryFilter" onchange="renderItems()" aria-label="Filter category"><option value="all">All categories</option><option>Electronics</option><option>Accessories</option><option>Books & stationery</option><option>Bags</option><option>Other</option></select></div>
+    </div>
+    <div id="itemsGrid" class="cards"></div>
+  </section>
+  <section id="report" class="report">
+    <h2>Report a lost or found item</h2>
+    <p class="hint">Add enough detail to help the owner identify the item. For privacy, don't post passwords, full ID numbers, or sensitive personal details.</p>
+    <form id="reportForm">
+      <div class="formgrid">
+        <div class="field"><label for="reportType">Report type *</label><select id="reportType" required><option value="lost">I lost an item</option><option value="found">I found an item</option></select></div>
+        <div class="field"><label for="itemName">Item name *</label><input id="itemName" required maxlength="70" placeholder="e.g. Blue water bottle"></div>
+        <div class="field"><label for="category">Category *</label><select id="category" required><option>Electronics</option><option>Accessories</option><option>Books & stationery</option><option>Bags</option><option>Other</option></select></div>
+        <div class="field"><label for="itemDate">Date *</label><input id="itemDate" type="date" required></div>
+        <div class="field"><label for="location">Campus location *</label><input id="location" required maxlength="100" placeholder="e.g. Library, Block B"></div>
+        <div class="field"><label for="contact">Contact (optional)</label><input id="contact" maxlength="100" placeholder="College email or safe contact method"></div>
+        <div class="field full"><label for="description">Description *</label><textarea id="description" required maxlength="500" placeholder="Color, brand, identifying details (avoid sensitive information)"></textarea></div>
+      </div>
+      <div class="formfoot"><span class="hint">Demo note: reports are saved only in this browser on this device.</span><button class="btn primary" type="submit">Submit report</button></div>
+      <div id="notice" class="notice" role="status"></div>
+    </form>
+  </section>
+  <div class="contact"><div><h3>Found something valuable?</h3><p>Consider handing it to campus security or the official lost-property desk.</p></div><a href="#report" class="btn secondary">Post a found item</a></div>
+</main>
+<footer class="footer">© 2026 CampusFind · A student-built campus lost & found demo</footer>
+<script>
+const starterItems = [
+{id:1,type:'lost',name:'Black wireless earbuds',category:'Electronics',date:'2026-10-22',location:'Library, 2nd floor',description:'Small black charging case. Lost while studying near the windows.',contact:'',icon:'🎧'},
+{id:2,type:'found',name:'Blue water bottle',category:'Other',date:'2026-10-24',location:'Science Block, Room 104',description:'Reusable blue bottle left on a desk after class.',contact:'',icon:'🧴'},
+{id:3,type:'lost',name:'Student notebook',category:'Books & stationery',date:'2026-10-23',location:'Central cafeteria',description:'Green spiral notebook with lecture notes inside.',contact:'',icon:'📓'},
+{id:4,type:'found',name:'Set of keys',category:'Accessories',date:'2026-10-25',location:'Near the sports ground',description:'Two keys on a plain metal ring. Ask for details to confirm ownership.',contact:'',icon:'🔑'},
+{id:5,type:'lost',name:'Grey laptop sleeve',category:'Bags',date:'2026-10-21',location:'Computer lab, Block A',description:'Grey fabric sleeve for a 14-inch laptop.',contact:'',icon:'💻'},
+{id:6,type:'found',name:'Black umbrella',category:'Other',date:'2026-10-26',location:'Main auditorium entrance',description:'Foldable black umbrella found after an event.',contact:'',icon:'☂️'}
+];
+let items;
+try { items = JSON.parse(localStorage.getItem('campusFindItems')) || starterItems; } catch(e) { items = starterItems; }
+function save(){try{localStorage.setItem('campusFindItems',JSON.stringify(items));}catch(e){}}
+function iconFor(cat){return {'Electronics':'🎧','Accessories':'🔑','Books & stationery':'📓','Bags':'🎒','Other':'📦'}[cat]||'📦'}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function renderItems(){
+ const q=(document.getElementById('searchInput').value||'').toLowerCase();
+ const type=document.getElementById('typeFilter').value, cat=document.getElementById('categoryFilter').value;
+ const filtered=items.filter(i=>(type==='all'||i.type===type)&&(cat==='all'||i.category===cat)&&[i.name,i.location,i.description,i.category].join(' ').toLowerCase().includes(q));
+ document.getElementById('itemsGrid').innerHTML=filtered.length?filtered.map(i=>`<article class="item"><div class="itemtop">${i.icon||iconFor(i.category)}</div><div class="itembody"><span class="tag ${i.type}">${i.type==='lost'?'Lost item':'Found item'}</span><h3>${esc(i.name)}</h3><div class="meta"><span>📍 ${esc(i.location)}</span><span>📅 ${esc(i.date)}</span></div><p>${esc(i.description)}</p><p><strong>Category:</strong> ${esc(i.category)}</p>${i.contact?`<p><strong>Contact:</strong> ${esc(i.contact)}</p>`:''}<button class="btn secondary" onclick="alert('Demo portal: contact details are shown only if the reporter supplied them. For a real campus service, verify ownership before handing over an item.')">How to claim</button></div></article>`).join(''):'<div class="empty">No matching items found. Try another search or report the item below.</div>';
+ document.getElementById('totalCount').textContent=items.length;
+ document.getElementById('lostCount').textContent=items.filter(i=>i.type==='lost').length;
+ document.getElementById('foundCount').textContent=items.filter(i=>i.type==='found').length;
+}
+function searchFromHero(){document.getElementById('searchInput').value=document.getElementById('heroSearch').value;renderItems();document.getElementById('items').scrollIntoView({behavior:'smooth'})}
+document.getElementById('reportForm').addEventListener('submit',e=>{
+ e.preventDefault();
+ const type=document.getElementById('reportType').value, category=document.getElementById('category').value;
+ const item={id:Date.now(),type,name:document.getElementById('itemName').value.trim(),category,date:document.getElementById('itemDate').value,location:document.getElementById('location').value.trim(),description:document.getElementById('description').value.trim(),contact:document.getElementById('contact').value.trim(),icon:iconFor(category)};
+ items.unshift(item);save();renderItems();e.target.reset();
+ const n=document.getElementById('notice');n.textContent='Report added! It is visible in this browser demo.';n.style.display='block';
+ document.getElementById('items').scrollIntoView({behavior:'smooth'});
+});
+document.getElementById('itemDate').value=new Date().toISOString().slice(0,10);
+renderItems();
+</script>
+</body>
+</html>
